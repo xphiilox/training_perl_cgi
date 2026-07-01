@@ -11,5 +11,6 @@ like $html, qr/<title>Training Perl Home<\/title>/, 'renders page title';
 like $html, qr/<h1>Training Perl Home<\/h1>/, 'renders heading';
 like $html, qr/Perl練習環境のCGIホーム画面/, 'renders subheading';
 like $html, qr/>CGI</, 'renders CGI mode';
+unlike $html, qr/\{\{(?:STAT_CARDS|TASK_ROWS)\}\}/, 'replaces template placeholders';
 
 done_testing;

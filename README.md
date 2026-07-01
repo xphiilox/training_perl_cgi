@@ -3,6 +3,7 @@
 DockerコンテナのPerl練習用の環境です。
 デバッガーを使ってステップ実行して入門しましょう。
 Apache の CGI 方式で動くホーム画面も用意しています。
+フロントのHTMLは `public/index.html`、CGIスクリプトは `public/index.cgi` です。
 
 ## 使い方
 

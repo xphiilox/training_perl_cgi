@@ -29,7 +29,7 @@ docker compose up -d
 http://localhost:3000
 ```
 
-ホーム画面は Apache の CGI 方式で動いています。入口のスクリプトは `public/index.cgi` です。
+ホーム画面は Apache の CGI 方式で動いています。入口のスクリプトは `public/index.cgi`、フロントのHTMLは `public/index.html` です。
 
 コンテナに入る場合:
 
