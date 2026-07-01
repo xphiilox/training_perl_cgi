@@ -1,6 +1,7 @@
 # training_perl
 
-Docker Compose で動かす Perl 練習用の最小環境です。
+DockerコンテナのPerl練習用の環境です。
+デバッガーを使ってステップ実行して入門しましょう。
 
 ## 使い方
 
