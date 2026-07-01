@@ -72,9 +72,11 @@ Dev Containers: Reopen in Container
 
 ## VSCode でデバッグする
 
-1. `bin/hello.pl` を開く
+1. Run and Debug から `Debug hello.pl` を選ぶ
 2. `say "Hello, Perl!!!";` の行にブレークポイントを置く
-3. Run and Debug から `Debug current Perl file` を実行する
+3. デバッグを実行する
+
+CGIホーム画面を追う場合は `public/index.cgi` にブレークポイントを置き、Run and Debug から `Debug CGI home` を実行します。
 
 この環境では `stopOnEntry: true` にしてあるため、デバッグ開始時に実行位置で止まります。
 

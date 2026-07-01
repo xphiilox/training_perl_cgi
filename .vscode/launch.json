@@ -2,16 +2,31 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug current Perl file",
+      "name": "Debug CGI home",
       "type": "perl",
       "request": "launch",
-      "program": "${file}",
+      "program": "${workspaceFolder}/public/index.cgi",
       "cwd": "${workspaceFolder}",
+      "preLaunchTask": "perl: reset debugger",
+      "postDebugTask": "perl: reset debugger",
       "stopOnEntry": true,
       "reloadModules": true,
       "inc": [
         "${workspaceFolder}/lib"
       ],
+      "pathMap": [
+        [
+          "file:///workspace/",
+          "file://${workspaceFolder}/"
+        ]
+      ],
+      "env": {
+        "REQUEST_METHOD": "GET",
+        "SCRIPT_NAME": "/index.cgi",
+        "SERVER_NAME": "localhost",
+        "SERVER_PORT": "3000",
+        "GATEWAY_INTERFACE": "CGI/1.1"
+      },
       "args": []
     },
     {
@@ -20,10 +35,18 @@
       "request": "launch",
       "program": "${workspaceFolder}/bin/hello.pl",
       "cwd": "${workspaceFolder}",
+      "preLaunchTask": "perl: reset debugger",
+      "postDebugTask": "perl: reset debugger",
       "stopOnEntry": true,
       "reloadModules": true,
       "inc": [
         "${workspaceFolder}/lib"
+      ],
+      "pathMap": [
+        [
+          "file:///workspace/",
+          "file://${workspaceFolder}/"
+        ]
       ],
       "args": []
     }

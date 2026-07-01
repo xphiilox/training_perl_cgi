@@ -26,4 +26,4 @@ RUN a2enmod cgid
 
 WORKDIR /workspace
 
-CMD ["apachectl", "-D", "FOREGROUND"]
+CMD ["sh", "-lc", "rm -f /var/run/apache2/apache2.pid /var/run/apache2/socks/cgisock.* && apachectl -D FOREGROUND"]

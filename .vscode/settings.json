@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "*.cgi": "perl",
     "*.pl": "perl",
     "*.pm": "perl",
     "*.t": "perl"
@@ -10,6 +11,14 @@
   "perl.perlCmd": "/usr/local/bin/perl",
   "perl.perlInc": [
     "${workspaceFolder}/lib"
+  ],
+  "perl.debugAdapterPort": 15603,
+  "perl.debugAdapterPortRange": 1000,
+  "perl.fileFilter": [
+    "*.cgi",
+    "*.pl",
+    "*.pm",
+    "*.t"
   ],
   "editor.glyphMargin": true,
   "debug.allowBreakpointsEverywhere": true

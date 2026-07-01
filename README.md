@@ -1,4 +1,4 @@
-# training_perl
+# training_perl_cgi
 
 DockerコンテナのPerl練習用の環境です。
 デバッガーを使ってステップ実行して入門しましょう。
@@ -45,10 +45,10 @@ VSCode に Dev Containers 拡張が入っている状態で、このフォルダ
 
 デバッグは VSCode の Run and Debug から以下を選べます。
 
-- `Debug current Perl file`
+- `Debug CGI home`
 - `Debug hello.pl`
 
-最初に使うなら `bin/hello.pl` を開いて、`Debug current Perl file` または `Debug hello.pl` でブレークポイントを置いて実行できます。
+CGIホーム画面を追うなら `Debug CGI home`、最初のステップ実行なら `Debug hello.pl` でブレークポイントを置いて実行できます。
 
 CPAN モジュールを追加したい場合は `cpanfile` に書いてから、必要に応じて Dockerfile や起動後のコンテナでインストールしてください。
 
