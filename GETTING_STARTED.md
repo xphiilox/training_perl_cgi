@@ -119,3 +119,7 @@ perl -MPerl::LanguageServer -e 'print "Perl::LanguageServer OK\n"'
 ```
 
 通る場合は VSCode を Dev Container で開き直してください。
+
+![VSCode Perl debugger](docs/images/vscode-perl-debug.png)
+
+Enjoy!
