@@ -24,7 +24,7 @@
     {
       "label": "perl: reset debugger",
       "type": "shell",
-      "command": "pkill -f '[P]erl::LanguageServer::DebuggerBridge' 2>/dev/null || true; pkill -f '[/]workspace/public/index.cgi' 2>/dev/null || true; pkill -f '${workspaceFolder}/public/index[.]cgi' 2>/dev/null || true",
+      "command": "pkill -f '[P]erl::LanguageServer::DebuggerBridge' 2>/dev/null || true; pkill -f '[/]workspace/public/.+[.]cgi' 2>/dev/null || true; pkill -f '${workspaceFolder}/public/.+[.]cgi' 2>/dev/null || true",
       "problemMatcher": []
     }
   ]

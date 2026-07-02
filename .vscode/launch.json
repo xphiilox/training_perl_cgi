@@ -2,6 +2,39 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Debug API index",
+      "type": "perl",
+      "request": "launch",
+      "program": "${workspaceFolder}/public/api/index.cgi",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "perl: reset debugger",
+      "postDebugTask": "perl: reset debugger",
+      "stopOnEntry": true,
+      "reloadModules": true,
+      "inc": [
+        "${workspaceFolder}/lib"
+      ],
+      "pathMap": [
+        [
+          "file:///workspace/",
+          "file://${workspaceFolder}/"
+        ]
+      ],
+      "env": {
+        "REQUEST_METHOD": "GET",
+        "SCRIPT_NAME": "/api/index.cgi",
+        "SERVER_NAME": "localhost",
+        "SERVER_PORT": "3000",
+        "GATEWAY_INTERFACE": "CGI/1.1",
+        "DB_HOST": "db",
+        "DB_PORT": "5432",
+        "DB_NAME": "training_perl",
+        "DB_USER": "training_perl",
+        "DB_PASSWORD": "training_perl"
+      },
+      "args": []
+    },
+    {
       "name": "Debug CGI home",
       "type": "perl",
       "request": "launch",
