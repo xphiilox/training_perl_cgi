@@ -9,6 +9,7 @@ RUN apt-get update \
         apache2 \
         curl \
         git \
+        libpq-dev \
         locales \
         make \
     && sed -i 's/^# *\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen \
@@ -18,7 +19,9 @@ RUN apt-get update \
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
+COPY cpanfile /tmp/cpanfile
 RUN cpanm --notest Perl::LanguageServer \
+    && cpanm --notest --installdeps /tmp \
     && rm -rf /root/.cpanm
 
 COPY docker/apache-training-perl.conf /etc/apache2/sites-available/000-default.conf

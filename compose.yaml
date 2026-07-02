@@ -3,8 +3,37 @@ services:
     build: .
     image: training-perl:local
     working_dir: /workspace
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: ${DB_HOST:-db}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_NAME: ${DB_NAME:-training_perl}
+      DB_USER: ${DB_USER:-training_perl}
+      DB_PASSWORD: ${DB_PASSWORD:-training_perl}
     volumes:
       - .:/workspace
     ports:
       - "3000:3000"
     command: sh -lc "rm -f /var/run/apache2/apache2.pid /var/run/apache2/socks/cgisock.* && apachectl -D FOREGROUND"
+
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: ${DB_NAME:-training_perl}
+      POSTGRES_USER: ${DB_USER:-training_perl}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-training_perl}
+    volumes:
+      - postgres-data:/var/lib/postgresql
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres-data:
