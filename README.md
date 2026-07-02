@@ -1,9 +1,6 @@
 # training_perl_cgi
 
-DockerコンテナのPerl練習用の環境です。
-デバッガーを使ってステップ実行して入門しましょう。
-Apache の CGI 方式で動くホーム画面も用意しています。
-フロントのHTMLは `public/index.html`、CGIスクリプトは `public/index.cgi` です。
+CGI方式でのHTML表示と、PostgreSQL 18 を使った登録フォームの練習用リポジトリです。
 
 ## 使い方
 
@@ -34,42 +31,13 @@ DB_PASSWORD=training_perl
 
 接続情報を変える場合は `.env.example` を参考に `.env` を作成してください。
 
-シェルに入る場合:
+## 画面
 
-```sh
-make shell
-```
+- `http://localhost:3000/`
+- `http://localhost:3000/register.cgi`
 
-コンテナを起動したままにする場合:
-
-```sh
-make up
-docker compose exec perl bash
-```
-
-テスト:
+## テスト
 
 ```sh
 make test
 ```
-
-## VSCode でデバッグする
-
-VSCode に Dev Containers 拡張が入っている状態で、このフォルダを開いてから `Dev Containers: Reopen in Container` を実行してください。
-
-コンテナ内の VSCode には Perl 拡張 `richterger.perl` が入り、Docker イメージ側にはデバッグアダプタ兼 language server の `Perl::LanguageServer` が入ります。
-
-デバッグは VSCode の Run and Debug から以下を選べます。
-
-- `Debug CGI home`
-- `Debug hello.pl`
-
-CGIホーム画面を追うなら `Debug CGI home`、最初のステップ実行なら `Debug hello.pl` でブレークポイントを置いて実行できます。
-
-CPAN モジュールを追加したい場合は `cpanfile` に書いてから、必要に応じて Dockerfile や起動後のコンテナでインストールしてください。
-
-詳しい手順は [GETTING_STARTED.md](GETTING_STARTED.md) を見てください。
-
-![VSCode Perl debugger](docs/images/vscode-perl-debug.png)
-
-Enjoy!
